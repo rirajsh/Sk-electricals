@@ -1,0 +1,344 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SK Electricals | Premium Industrial Solutions</title>
+    <!-- Premium fonts for a luxurious aesthetic -->
+    <link rel="preconnect" href="https://googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0056b3;
+            --secondary: #111111;
+            --premium-gold: #c5a880;
+            --light: #fdfdfd;
+            --card-bg: #ffffff;
+            --text: #2c3e50;
+        }
+        
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            color: var(--text);
+            background-color: #fafafa;
+        }
+
+        header {
+            background: rgba(17, 17, 17, 0.95);
+            color: white;
+            padding: 1.2rem;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: auto;
+        }
+
+        nav .logo {
+            font-family: 'Playfair Display', serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            letter-spacing: 1px;
+            color: var(--premium-gold);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            margin: 0;
+            padding: 0;
+        }
+
+        nav a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 400;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--premium-gold);
+        }
+
+        /* Hero Banner with Ultra-Premium Industrial Landscape View */
+        .hero {
+            background: linear-gradient(rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0.75)), url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="1200" height="400" viewBox="0 0 1200 400"><rect width="100%" height="100%" fill="%23222"/><path d="M0 400 L300 200 L600 350 L900 150 L1200 400 Z" fill="%23333"/><path d="M0 400 L400 250 L800 380 L1200 200 L1200 400 Z" fill="%232a2a2a"/><text x="50%" y="50%" fill="%23c5a880" font-family="serif" font-size="24" font-weight="bold" text-anchor="middle" letter-spacing="4">SK ELECTRICALS INDUSTRIAL LANDSCAPE</text></svg>') no-repeat center center/cover;
+            color: white;
+            padding: 9rem 2rem;
+            text-align: center;
+            border-bottom: 4px solid var(--premium-gold);
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4.5rem;
+            font-weight: 700;
+            font-style: italic;
+            margin: 0 0 1rem 0;
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow: 2px 2px 15px rgba(0,0,0,0.5);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto 2.5rem auto;
+            font-weight: 300;
+            letter-spacing: 1px;
+            line-height: 1.8;
+            opacity: 0.9;
+        }
+
+        .btn {
+            display: inline-block;
+            background: transparent;
+            color: #ffffff;
+            padding: 0.9rem 2.2rem;
+            text-decoration: none;
+            border-radius: 0;
+            font-weight: 500;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            border: 1px solid var(--premium-gold);
+            transition: all 0.4s ease;
+        }
+
+        .btn:hover {
+            background: var(--premium-gold);
+            color: #111111;
+            box-shadow: 0 4px 15px rgba(197, 168, 128, 0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: auto;
+            padding: 4rem 1.5rem;
+        }
+
+        section {
+            margin-bottom: 5rem;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: var(--secondary);
+            position: relative;
+            padding-bottom: 1rem;
+        }
+
+        h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background-color: var(--premium-gold);
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+        }
+
+        .card {
+            background: var(--card-bg);
+            padding: 2.5rem 2rem;
+            border: 1px solid #eaeaea;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.02);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.06);
+            border-color: var(--premium-gold);
+        }
+
+        .card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.4rem;
+            margin-top: 0;
+            margin-bottom: 1rem;
+            color: var(--secondary);
+        }
+
+        /* Product Gallery Layout Adjustments - Guaranteed Unbroken Media Element blocks */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 2rem;
+        }
+
+        .gallery-box {
+            background: var(--card-bg);
+            border: 1px solid #eeeeee;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+        }
+
+        .gallery-image-container {
+            width: 100%;
+            height: 280px;
+            overflow: hidden;
+            background-color: #f5f5f5;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .gallery-image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .gallery-box:hover .gallery-image-container img {
+            transform: scale(1.05);
+        }
+
+        .gallery-title {
+            padding: 1.2rem;
+            text-align: center;
+            font-weight: 500;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            background: #ffffff;
+            color: var(--secondary);
+            border-top: 1px solid #f5f5f5;
+        }
+
+        /* Premium Dark Footer Structure */
+        footer {
+            background: var(--secondary);
+            color: #ffffff;
+            padding: 5rem 1.5rem 3rem 1.5rem;
+            border-top: 3px solid var(--premium-gold);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 3rem;
+            border-bottom: 1px solid #333333;
+            padding-bottom: 3rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-column h4 {
+            font-family: 'Playfair Display', serif;
+            color: var(--premium-gold);
+            font-size: 1.3rem;
+            margin-top: 0;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-column p {
+            color: #bbbbbb;
+            margin: 0.6rem 0;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .whatsapp-link {
+            display: inline-flex;
+            align-items: center;
+            color: #25d366;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.4rem;
+            margin-top: 0.5rem;
+            transition: opacity 0.2s ease;
+        }
+
+        .whatsapp-link:hover {
+            opacity: 0.85;
+        }
+
+        .address-box {
+            margin-top: 1.5rem;
+        }
+
+        .address-text {
+            color: #ffffff !important;
+            font-size: 1.2rem;
+            font-weight: 500;
+            line-height: 1.5;
+            margin-bottom: 0.8rem !important;
+        }
+
+        .map-link {
+            display: inline-block;
+            color: var(--premium-gold);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            letter-spacing: 1px;
+            border-bottom: 1px dashed var(--premium-gold);
+            padding-bottom: 2px;
+            transition: color 0.2s ease, border-color 0.2s ease;
+        }
+
+        .map-link:hover {
+            color: #ffffff;
+            border-color: #ffffff;
+        }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 1rem;
+            color: #777777;
+            font-size: 0.85rem;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.8rem; }
+            nav { flex-direction: column; gap: 1rem; }
+            nav ul { gap: 1rem; flex-wrap: wrap; justify-content: center; }
+            .footer-bottom { flex-direction: column; text-align: center; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <nav>
