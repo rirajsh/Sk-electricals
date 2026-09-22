@@ -1,353 +1,737 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SK Electricals | Premium Industrial Solutions</title>
-    <!-- Premium Google Fonts -->
-    <link rel="preconnect" href="https://googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://googleapis.com/css2?family=Montserrat:wght@300;400;500;700&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-    <style>
-        /* Base Reset Layout */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-        body {
-            font-family: 'Montserrat', sans-serif;
-            line-height: 1.6;
-            color: #2c3e50;
-            background-color: #fafafa;
-            width: 100%;
-        }
+<title>SK Electricals | Premium Electrical Solutions</title>
 
-        /* Luxury Header Section */
-        header {
-            background: #111111;
-            color: #ffffff;
-            padding: 1.2rem 2rem;
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            width: 100%;
-        }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-        .nav-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-            width: 100%;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-        .logo {
-            font-family: 'Playfair Display', serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            letter-spacing: 1px;
-            color: #c5a880; /* Premium Gold Accent */
-        }
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2rem;
-        }
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-        nav a {
-            color: #ffffff;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
-        }
+html {
+    scroll-behavior: smooth;
+}
 
-        nav a:hover {
-            color: #c5a880;
-        }
+body {
+    font-family: 'Montserrat', sans-serif;
+    color: #2c3e50;
+    background: #fafafa;
+    line-height: 1.6;
+}
 
-        /* Hero Banner Section */
-        .hero-banner {
-            background: linear-gradient(rgba(17, 17, 17, 0.75), rgba(17, 17, 17, 0.85)), 
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://w3.org" width="1200" height="500" viewBox="0 0 1200 500"><rect width="100%" height="100%" fill="%231a1a1a"/><path d="M0 500 L300 250 L600 450 L900 200 L1200 500 Z" fill="%23262626"/><path d="M0 500 L400 300 L800 480 L1200 250 L1200 500 Z" fill="%23222222"/></svg>') no-repeat center center/cover;
-            color: #ffffff;
-            padding: 10rem 2rem;
-            text-align: center;
-            border-bottom: 4px solid #c5a880;
-            width: 100%;
-        }
+header {
+    background: #111;
+    color: white;
+    padding: 20px 6%;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    border-bottom: 2px solid #c5a880;
+}
 
-        .hero-banner h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4.5rem;
-            font-weight: 700;
-            font-style: italic;
-            margin-bottom: 1.5rem;
-            letter-spacing: 2px;
-            text-shadow: 0 4px 15px rgba(0,0,0,0.6);
-        }
+.nav-container {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
 
-        .hero-banner p {
-            font-size: 1.15rem;
-            max-width: 800px;
-            margin: 0 auto 3rem auto;
-            font-weight: 300;
-            letter-spacing: 1px;
-            line-height: 1.8;
-            color: #e0e0e0;
-        }
+.logo {
+    color: #c5a880;
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
 
-        .action-btn {
-            display: inline-block;
-            background: transparent;
-            color: #ffffff;
-            padding: 1rem 2.5rem;
-            text-decoration: none;
-            font-weight: 500;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            border: 1px solid #c5a880;
-            transition: all 0.4s ease;
-        }
+nav ul {
+    display: flex;
+    gap: 25px;
+    list-style: none;
+    flex-wrap: wrap;
+}
 
-        .action-btn:hover {
-            background: #c5a880;
-            color: #111111;
-            box-shadow: 0 4px 20px rgba(197, 168, 128, 0.4);
-        }
+nav a {
+    color: white;
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
 
-        /* Main Content Layout Container Container */
-        .content-main {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 6rem 1.5rem;
-            width: 100%;
-        }
+nav a:hover {
+    color: #c5a880;
+}
 
-        section {
-            margin-bottom: 7rem;
-            width: 100%;
-        }
+.hero {
+    background:
+        linear-gradient(rgba(17,17,17,.8), rgba(17,17,17,.9)),
+        linear-gradient(135deg, #222, #080808);
+    color: white;
+    text-align: center;
+    padding: 130px 20px;
+    border-bottom: 4px solid #c5a880;
+}
 
-        section h2 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2.6rem;
-            text-align: center;
-            margin-bottom: 3.5rem;
-            color: #111111;
-            position: relative;
-            padding-bottom: 1.2rem;
-        }
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(2.5rem, 6vw, 5rem);
+    font-style: italic;
+    color: #c5a880;
+    margin-bottom: 20px;
+}
 
-        section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 75px;
-            height: 2px;
-            background-color: #c5a880;
-        }
+.hero p {
+    max-width: 800px;
+    margin: auto;
+    color: #ddd;
+    font-size: 1.1rem;
+    margin-bottom: 35px;
+}
 
-        /* Dynamic Product Flex / Grid Blocks */
-        .feature-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2.5rem;
-            width: 100%;
-        }
+.btn {
+    display: inline-block;
+    padding: 14px 30px;
+    border: 1px solid #c5a880;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 13px;
+    transition: .3s;
+}
 
-        .info-card {
-            background: #ffffff;
-            padding: 3rem 2rem;
-            border: 1px solid #eeeeee;
-            box-shadow: 0 5px 25px rgba(0,0,0,0.02);
-            transition: all 0.3s ease;
-        }
+.btn:hover {
+    background: #c5a880;
+    color: #111;
+}
 
-        .info-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.07);
-            border-color: #c5a880;
-        }
+.container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 80px 25px;
+}
 
-        .info-card h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 1.4rem;
-            margin-bottom: 1.2rem;
-            color: #111111;
-        }
+section {
+    margin-bottom: 50px;
+}
 
-        .info-card p {
-            font-size: 0.95rem;
-            color: #555555;
-            line-height: 1.7;
-        }
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 42px;
+    color: #111;
+    text-align: center;
+    margin-bottom: 45px;
+}
 
-        /* Gallery System Structure */
-        .media-gallery {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 2rem;
-            width: 100%;
-        }
+.section-title::after {
+    content: "";
+    display: block;
+    width: 75px;
+    height: 2px;
+    background: #c5a880;
+    margin: 18px auto 0;
+}
 
-        .gallery-item-box {
-            background: #ffffff;
-            border: 1px solid #eaeaea;
-            overflow: hidden;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.02);
-        }
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 25px;
+}
 
-        .image-frame {
-            width: 100%;
-            height: 280px;
-            overflow: hidden;
-            background-color: #f9f9f9;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.card {
+    background: white;
+    border: 1px solid #eee;
+    box-shadow: 0 5px 25px rgba(0,0,0,.04);
+    transition: .3s;
+    overflow: hidden;
+}
 
-        .image-frame img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.6s ease;
-        }
+.card:hover {
+    transform: translateY(-5px);
+    border-color: #c5a880;
+    box-shadow: 0 15px 40px rgba(0,0,0,.1);
+}
 
-        .gallery-item-box:hover .image-frame img {
-            transform: scale(1.06);
-        }
+.card-image {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    background: #f1f1f1;
+}
 
-        .image-caption {
-            padding: 1.2rem;
-            text-align: center;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 1px;
-            background: #ffffff;
-            color: #111111;
-            border-top: 1px solid #f5f5f5;
-        }
+.card-content {
+    padding: 25px;
+}
 
-        /* Description Body Styles */
-        .text-block-body p {
-            font-size: 1.05rem;
-            color: #444444;
-            margin-bottom: 1.5rem;
-            line-height: 1.9;
-        }
+.card h3 {
+    font-family: 'Playfair Display', serif;
+    color: #111;
+    font-size: 23px;
+    margin-bottom: 10px;
+}
 
-        /* Solid Dark Footer Layout Grid */
-        footer {
-            background: #111111;
-            color: #ffffff;
-            padding: 5rem 2rem 3rem 2rem;
-            border-top: 4px solid #c5a880;
-            width: 100%;
-        }
+.card p {
+    color: #666;
+    font-size: 14px;
+}
 
-        .footer-columns {
-            max-width: 1200px;
-            margin: 0 auto 3rem auto;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 3.5rem;
-            border-bottom: 1px solid #252525;
-            padding-bottom: 3.5rem;
-            width: 100%;
-        }
+.category {
+    color: #a2875e;
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
 
-        .footer-column h4 {
-            font-family: 'Playfair Display', serif;
-            color: #c5a880;
-            font-size: 1.3rem;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-        }
+.empty {
+    text-align: center;
+    color: #777;
+    padding: 30px;
+}
 
-        .footer-column p {
-            color: #cccccc;
-            margin-bottom: 0.8rem;
-            font-size: 0.95rem;
-        }
+.contact-box {
+    max-width: 750px;
+    margin: auto;
+    background: white;
+    border: 1px solid #eee;
+    padding: 40px;
+    box-shadow: 0 5px 25px rgba(0,0,0,.04);
+}
 
-        .whatsapp-btn-link {
-            display: inline-block;
-            color: #25d366;
-            text-decoration: none;
-            font-weight: 700;
-            font-size: 1.45rem;
-            margin-top: 0.5rem;
-            transition: opacity 0.2s ease;
-        }
+.contact-box p {
+    margin-bottom: 14px;
+}
 
-        .whatsapp-btn-link:hover {
-            opacity: 0.85;
-        }
+form {
+    display: grid;
+    gap: 15px;
+    margin-top: 25px;
+}
 
-        .footer-address-text {
-            color: #ffffff !important;
-            font-size: 1.25rem !important;
-            font-weight: 500;
-            line-height: 1.6;
-            margin-bottom: 1rem !important;
-        }
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 14px;
+    border: 1px solid #ddd;
+    font-family: inherit;
+    font-size: 14px;
+}
 
-        .map-route-link {
-            display: inline-block;
-            color: #c5a880;
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            letter-spacing: 0.5px;
-            border-bottom: 1px dashed #c5a880;
-            padding-bottom: 2px;
-            transition: all 0.2s ease;
-        }
+textarea {
+    min-height: 130px;
+    resize: vertical;
+}
 
-        .map-route-link:hover {
-            color: #ffffff;
-            border-color: #ffffff;
-        }
+button {
+    background: #111;
+    color: #c5a880;
+    border: 1px solid #c5a880;
+    padding: 14px 20px;
+    cursor: pointer;
+    font-family: inherit;
+    font-weight: 600;
+    transition: .3s;
+}
 
-        .footer-base {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-            color: #666666;
-            font-size: 0.85rem;
-            width: 100%;
-        }
+button:hover {
+    background: #c5a880;
+    color: #111;
+}
 
-        html {
-            scroll-behavior: smooth;
-        }
+#formMessage {
+    margin-top: 10px;
+    font-weight: 600;
+}
 
-        /* Screen Adaptation Layers */
-        @media (max-width: 768px) {
-            .hero-banner h1 { font-size: 2.8rem; }
-            .nav-container { flex-direction: column; gap: 1.2rem; text-align: center; }
-            nav ul { gap: 1.2rem; flex-wrap: wrap; justify-content: center; }
-            .footer-base { flex-direction: column; text-align: center; }
-        }
-    </style>
+footer {
+    background: #111;
+    color: white;
+    border-top: 4px solid #c5a880;
+    padding: 50px 25px;
+    text-align: center;
+}
+
+footer strong {
+    color: #c5a880;
+}
+
+.whatsapp {
+    position: fixed;
+    right: 25px;
+    bottom: 25px;
+    width: 55px;
+    height: 55px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #25d366;
+    color: white;
+    border-radius: 50%;
+    text-decoration: none;
+    font-size: 25px;
+    z-index: 999;
+}
+
+@media(max-width: 700px) {
+    .nav-container {
+        flex-direction: column;
+    }
+
+    nav ul {
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .hero {
+        padding: 90px 20px;
+    }
+
+    .section-title {
+        font-size: 34px;
+    }
+
+    .contact-box {
+        padding: 25px;
+    }
+}
+</style>
 </head>
+
 <body>
 
-    <header>
-        <div class="nav-container">
-            <div class="logo">SK Electricals</div>
+<header>
+    <div class="nav-container">
+        <div class="logo">SK Electricals</div>
+
+        <nav>
+            <ul>
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#products">PRODUCTS</a></li>
+                <li><a href="#gallery">GALLERY</a></li>
+                <li><a href="#brands">BRANDS</a></li>
+                <li><a href="#blog">BLOG</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<section class="hero" id="home">
+    <h1>SK Electricals</h1>
+    <p>
+        Premium electrical products and dependable industrial solutions,
+        delivered with quality, precision and trust.
+    </p>
+
+    <a class="btn" href="#products">Explore Products</a>
+</section>
+
+<main class="container">
+
+<section id="products">
+    <h2 class="section-title">Our Products</h2>
+    <div id="productsContainer" class="grid">
+        <p class="empty">Loading products...</p>
+    </div>
+</section>
+
+<section id="gallery">
+    <h2 class="section-title">Our Gallery</h2>
+    <div id="galleryContainer" class="grid">
+        <p class="empty">Loading gallery...</p>
+    </div>
+</section>
+
+<section id="brands">
+    <h2 class="section-title">Our Brands</h2>
+    <div id="brandsContainer" class="grid">
+        <p class="empty">Loading brands...</p>
+    </div>
+</section>
+
+<section id="blog">
+    <h2 class="section-title">Latest Updates</h2>
+    <div id="blogContainer" class="grid">
+        <p class="empty">Loading articles...</p>
+    </div>
+</section>
+
+<section id="contact">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-box">
+        <div id="contactDetails">
+            Loading contact information...
+        </div>
+
+        <h3 style="margin-top:30px;font-family:'Playfair Display',serif;">
+            Send an Enquiry
+        </h3>
+
+        <form id="enquiryForm">
+            <input
+                type="text"
+                id="customerName"
+                placeholder="Your Name"
+                required
+            >
+
+            <input
+                type="email"
+                id="customerEmail"
+                placeholder="Your Email"
+                required
+            >
+
+            <input
+                type="tel"
+                id="customerPhone"
+                placeholder="Your Phone Number"
+                required
+            >
+
+            <textarea
+                id="customerMessage"
+                placeholder="Write your enquiry"
+                required
+            ></textarea>
+
+            <button type="submit">Submit Enquiry</button>
+
+            <div id="formMessage"></div>
+        </form>
+    </div>
+</section>
+
+</main>
+
+<a
+    class="whatsapp"
+    href="https://wa.me/918222814300"
+    target="_blank"
+    aria-label="Contact on WhatsApp"
+>💬</a>
+
+<footer>
+    <p>
+        © <span id="year"></span>
+        <strong>SK Electricals</strong>.
+        All Rights Reserved.
+    </p>
+</footer>
+
+<script>
+const SUPABASE_URL = "https://rjewjyhpjashawbihxcj.supabase.co";
+
+const SUPABASE_KEY =
+    "sb_publishable_OVnH4UQve-nlCDMHvSfWqw_XKh2tf9T";
+
+const supabaseClient = window.supabase.createClient(
+    SUPABASE_URL,
+    SUPABASE_KEY
+);
+
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+
+function escapeHTML(value) {
+    if (value === null || value === undefined) return "";
+
+    return String(value)
+        .replaceAll("&", "&amp;")
+        .replaceAll("<", "&lt;")
+        .replaceAll(">", "&gt;")
+        .replaceAll('"', "&quot;")
+        .replaceAll("'", "&#039;");
+}
+
+async function loadProducts() {
+    const container = document.getElementById("productsContainer");
+
+    const { data, error } = await supabaseClient
+        .from("products")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        container.innerHTML =
+            '<p class="empty">Products are currently unavailable.</p>';
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML =
+            '<p class="empty">Products will be added soon.</p>';
+        return;
+    }
+
+    container.innerHTML = data.map(product => `
+        <article class="card">
+            ${
+                product.image_url
+                ? `<img class="card-image"
+                    src="${escapeHTML(product.image_url)}"
+                    alt="${escapeHTML(product.name)}">`
+                : ""
+            }
+
+            <div class="card-content">
+                <div class="category">
+                    ${escapeHTML(product.category || "Electrical Product")}
+                </div>
+
+                <h3>${escapeHTML(product.name)}</h3>
+
+                <p>${escapeHTML(product.description || "")}</p>
+            </div>
+        </article>
+    `).join("");
+}
+
+async function loadGallery() {
+    const container = document.getElementById("galleryContainer");
+
+    const { data, error } = await supabaseClient
+        .from("gallery")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        container.innerHTML =
+            '<p class="empty">Gallery is currently unavailable.</p>';
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML =
+            '<p class="empty">Gallery images will be added soon.</p>';
+        return;
+    }
+
+    container.innerHTML = data.map(item => `
+        <article class="card">
+            ${
+                item.image_url
+                ? `<img class="card-image"
+                    src="${escapeHTML(item.image_url)}"
+                    alt="${escapeHTML(item.title)}">`
+                : ""
+            }
+
+            <div class="card-content">
+                <h3>${escapeHTML(item.title)}</h3>
+                <p>${escapeHTML(item.category || "")}</p>
+            </div>
+        </article>
+    `).join("");
+}
+
+async function loadBrands() {
+    const container = document.getElementById("brandsContainer");
+
+    const { data, error } = await supabaseClient
+        .from("brands")
+        .select("*")
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        container.innerHTML =
+            '<p class="empty">Brands are currently unavailable.</p>';
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML =
+            '<p class="empty">Brand information will be added soon.</p>';
+        return;
+    }
+
+    container.innerHTML = data.map(brand => `
+        <article class="card">
+            ${
+                brand.logo_url
+                ? `<img class="card-image"
+                    src="${escapeHTML(brand.logo_url)}"
+                    alt="${escapeHTML(brand.name)}">`
+                : ""
+            }
+
+            <div class="card-content">
+                <h3>${escapeHTML(brand.name)}</h3>
+            </div>
+        </article>
+    `).join("");
+}
+
+async function loadBlogPosts() {
+    const container = document.getElementById("blogContainer");
+
+    const { data, error } = await supabaseClient
+        .from("blog_posts")
+        .select("*")
+        .eq("published", true)
+        .order("created_at", { ascending: false });
+
+    if (error) {
+        container.innerHTML =
+            '<p class="empty">Blog posts are currently unavailable.</p>';
+        console.error(error);
+        return;
+    }
+
+    if (!data || data.length === 0) {
+        container.innerHTML =
+            '<p class="empty">New updates will appear here soon.</p>';
+        return;
+    }
+
+    container.innerHTML = data.map(post => `
+        <article class="card">
+            ${
+                post.image_url
+                ? `<img class="card-image"
+                    src="${escapeHTML(post.image_url)}"
+                    alt="${escapeHTML(post.title)}">`
+                : ""
+            }
+
+            <div class="card-content">
+                <h3>${escapeHTML(post.title)}</h3>
+                <p>${escapeHTML(post.content || "")}</p>
+            </div>
+        </article>
+    `).join("");
+}
+
+async function loadContactDetails() {
+    const container = document.getElementById("contactDetails");
+
+    const { data, error } = await supabaseClient
+        .from("contact_settings")
+        .select("*")
+        .limit(1)
+        .maybeSingle();
+
+    if (error || !data) {
+        container.innerHTML = `
+            <p><strong>SK Electricals</strong></p>
+            <p>Contact information will be updated soon.</p>
+        `;
+        return;
+    }
+
+    container.innerHTML = `
+        <p><strong>${escapeHTML(data.business_name || "SK Electricals")}</strong></p>
+
+        ${
+            data.contact_person
+            ? `<p>Contact Person: ${escapeHTML(data.contact_person)}</p>`
+            : ""
+        }
+
+        ${
+            data.phone_one
+            ? `<p>Phone: ${escapeHTML(data.phone_one)}</p>`
+            : ""
+        }
+
+        ${
+            data.phone_two
+            ? `<p>Alternative Phone: ${escapeHTML(data.phone_two)}</p>`
+            : ""
+        }
+
+        ${
+            data.email
+            ? `<p>Email: ${escapeHTML(data.email)}</p>`
+            : ""
+        }
+
+        ${
+            data.address
+            ? `<p>Address: ${escapeHTML(data.address)}</p>`
+            : ""
+        }
+    `;
+}
+
+document
+    .getElementById("enquiryForm")
+    .addEventListener("submit", async function(event) {
+        event.preventDefault();
+
+        const messageBox = document.getElementById("formMessage");
+
+        messageBox.textContent = "Submitting enquiry...";
+        messageBox.style.color = "#a2875e";
+
+        const enquiry = {
+            customer_name:
+                document.getElementById("customerName").value.trim(),
+
+            customer_email:
+                document.getElementById("customerEmail").value.trim(),
+
+            customer_phone:
+                document.getElementById("customerPhone").value.trim(),
+
+            message:
+                document.getElementById("customerMessage").value.trim(),
+
+            status: "new"
+        };
+
+        const { error } = await supabaseClient
+            .from("enquiries")
+            .insert([enquiry]);
+
+        if (error) {
+            console.error(error);
+            messageBox.textContent =
+                "Unable to submit enquiry. Please try again.";
+            messageBox.style.color = "red";
+            return;
+        }
+
+        messageBox.textContent =
+            "Thank you. Your enquiry has been submitted successfully.";
+
+        messageBox.style.color = "green";
+
+        this.reset();
+    });
+
+async function initializeWebsite() {
+    await Promise.all([
+        loadProducts(),
+        loadGallery(),
+        loadBrands(),
+        loadBlogPosts(),
+        loadContactDetails()
+    ]);
+}
+
+initializeWebsite();
+</script>
+
+</body>
+</html>
